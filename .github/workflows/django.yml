@@ -25,6 +25,7 @@ jobs:
       - name: Check for non-ASCII characters
         run: |
 <<<<<<< HEAD
+<<<<<<< HEAD
           if grep -Pnr "[^[:ascii:]]" *.py; then
 =======
           if find . -name "*.py" | xargs grep -Pn "[^[:ascii:]]"; then
@@ -34,3 +35,12 @@ jobs:
           else
             echo "No non-ASCII characters detected."
           fi
+=======
+          for file in $(find . -name "*.py"); do
+            if grep -Pn "[^[:ascii:]]" $file; then
+              echo "Non-ASCII characters found in $file!"
+              exit 1
+            fi
+          done
+          echo "No non-ASCII characters detected."
+>>>>>>> main
