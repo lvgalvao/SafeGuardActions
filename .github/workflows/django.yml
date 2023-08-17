@@ -9,18 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Manually install Python 2.7
+      - name: Manually install Python 2.7 and pip
         run: |
           sudo apt-get update
           sudo apt-get install -y python2.7 python-pip
 
       - name: Verify Python version
         run: python2.7 -V
-
-      - name: Install pip
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python-pip
 
       - name: Install dependencies
         run: |
