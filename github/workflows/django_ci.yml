@@ -1,4 +1,4 @@
-name: Django CI
+name: Django CI UTF
 
 on: [push, pull_request]
 
