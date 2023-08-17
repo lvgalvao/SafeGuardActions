@@ -22,6 +22,11 @@ jobs:
           python2.7 -m pip install --upgrade pip
           python2.7 -m pip install -r requirements.txt
 
-      - name: Check for non-UTF-8 characters
+      - name: Check for non-ASCII characters
         run: |
-          ! find . -name "*.py" | xargs iconv -f utf-8 -t utf-8 -c | grep -n '[�]'
+          if grep -Pnr "[^[:ascii:]]" *.py; then
+            echo "Non-ASCII characters found!"
+            exit 1
+          else
+            echo "No non-ASCII characters detected."
+          fi
