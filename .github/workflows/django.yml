@@ -9,10 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python 2.7
-        uses: actions/setup-python@v2
-        with:
-          python-version: 2.7
+      - name: Manually install Python 2.7
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python2.7 python-pip
+
+      - name: Verify Python version
+        run: python2.7 -V
 
       - name: Install dependencies
         run: |
