@@ -1,10 +1,38 @@
 # Um comentário pode arruinar seu dia
 
-Ah, a arte sutil de derrubar um serviço inteiro com uma única linha de comentário. Este projeto foi criado com fins educacionais com o objetivo primordial de te ensinar exatamente isso. Claro, para os menos aventureiros, também ensinamos como evitar esse caos completo utilizando o Github Actions - mas convenhamos, onde está a diversão nisso?
+Ah, a arte sutil de derrubar um serviço inteiro com uma única linha de comentário. Este projeto foi criado com fins educacionais com o objetivo primordial de te ensinar exatamente isso: como derrubar um serviço inteiro com uma linha de código.
 
-## Por que um comentário?
+Claro, para os menos aventureiros, também ensinamos como evitar esse caos completo utilizando o Github Actions - mas convenhamos, onde está a diversão nisso?
 
-Você pode estar se perguntando: "Como um simples comentário pode ser tão destrutivo?" No mundo da programação, às vezes são as coisas mais simples que nos pegam desprevenidos. Neste projeto, usamos uma versão antiga do Python que tem problemas com caracteres especiais. Esse "erro" simples e comum pode levar a falhas inesperadas, demonstrando a importância de manter tudo atualizado e seguir as melhores práticas de CI/CD.
+## O que é o GitHub Actions?
+
+GitHub Actions é uma ferramenta de automação que permite que você defina ações customizadas para o seu repositório no GitHub. Ele permite que você configure workflows de CI/CD (Integração Contínua/Entrega Contínua) diretamente a partir do seu repositório. Em nosso contexto, usamos o GitHub Actions para identificar e impedir que comentários não compatíveis sejam inseridos no código.
+
+## Configurando o GitHub Actions
+
+Para configurar o GitHub Actions, você precisa criar uma pasta chamada `.github` na raiz do seu repositório. Dentro dela, outra pasta chamada `workflows`. É aqui que todos os seus arquivos de configuração de workflow ficarão.
+
+Para este projeto, o arquivo que estamos usando é `django_ci.yml` (ou qualquer outro nome que você escolher com a extensão `.yml`).
+
+### Etapas do arquivo `django_ci.yml`:
+
+1. **Definição do Evento**: Define quando o workflow será acionado. Ex.: em cada `push` ou `pull_request`.
+    
+2. **Definição de Jobs**: Os jobs são as tarefas que serão executadas. No nosso caso, temos um job chamado `build` que vai rodar em um ambiente Ubuntu.
+    
+3. **Checkout**: Usa-se `actions/checkout@v2` para fazer checkout do código no runner do GitHub Actions.
+    
+4. **Instalação do Python 2.7**: Instalamos manualmente o Python 2.7, já que ele não é mais suportado por padrão.
+    
+5. **Verificar a versão do Python**: Simplesmente imprimimos a versão para fins de debug.
+    
+6. **Instalar o pip**: O pip é nosso gerenciador de pacotes do Python, que usamos para instalar dependências.
+    
+7. **Instalar dependências**: Usamos o `pip` para instalar todas as dependências definidas em `requirements.txt`.
+    
+8. **Checagem de caracteres não UTF-8**: Essa é a etapa onde identificamos se existem caracteres que não são compatíveis com UTF-8, como acentos, no código. Se encontrarmos algum, a build falhará.
+
+Espero que este guia ajude a entender melhor o propósito e funcionamento do nosso projeto. Boa sorte explorando e experimentando!
 
 ## Rodando com Docker
 
@@ -71,8 +99,14 @@ Se preferir rodar o projeto localmente sem o Docker, consulte as instruções an
     ```bash
     pip install -r requirements.txt
     ```
+
+6. Inicie o servidor de desenvolvimento Django:
     
-6. Acesse o aplicativo no navegador:
+    ```bash
+    python manage.py runserver
+    ```
+    
+7. Acesse o aplicativo no navegador:
     
     ```bash
     http://localhost:8000/hello
