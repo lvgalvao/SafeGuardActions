@@ -4,6 +4,10 @@ Ah, a arte sutil de derrubar um serviço inteiro com uma única linha de coment�
 
 Claro, para os menos aventureiros, também ensinamos como evitar esse caos completo utilizando o Github Actions - mas convenhamos, onde está a diversão nisso?
 
+## Case
+
+Link: [Data Quality Com Pydantic](https://www.linkedin.com/posts/lucianovasconcelosf_data-quality-com-pydantic-activity-7105912270722887681-5tuc?utm_source=share&utm_medium=member_desktop)
+
 ## O que é o GitHub Actions?
 
 GitHub Actions é uma ferramenta de automação que permite que você defina ações customizadas para o seu repositório no GitHub. Ele permite que você configure workflows de CI/CD (Integração Contínua/Entrega Contínua) diretamente a partir do seu repositório. Em nosso contexto, usamos o GitHub Actions para identificar e impedir que comentários não compatíveis sejam inseridos no código.
