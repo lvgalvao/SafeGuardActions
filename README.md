@@ -6,7 +6,7 @@ Claro, para os menos aventureiros, também ensinamos como evitar esse caos compl
 
 ## Case
 
-Link: [Data Quality Com Pydantic](https://www.linkedin.com/posts/lucianovasconcelosf_data-quality-com-pydantic-activity-7105912270722887681-5tuc?utm_source=share&utm_medium=member_desktop)
+Link: [Github Actions](https://www.linkedin.com/posts/lucianovasconcelosf_github-actions-activity-7098264928553201665-K-0a/?utm_source=share&utm_medium=member_desktop)
 
 ## O que é o GitHub Actions?
 
